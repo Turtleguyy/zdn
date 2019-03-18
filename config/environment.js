@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'zdn',
+    podModulePrefix: 'zdn/pods',
     environment,
     rootURL: '/',
     locationType: 'auto',
