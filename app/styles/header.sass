@@ -1,0 +1,22 @@
+header
+  padding: 20px
+  display: flex
+
+  h1
+    position: relative
+
+    &::after
+      top: 100%
+      position: absolute
+      width: 100%
+      content: 'CSS FTW'
+      display: block
+      color: $light
+      font-size: 14px
+      letter-spacing: 2.1em
+      opacity: 0
+      transition: opacity 200ms ease
+      white-space: nowrap
+
+    &:hover::after
+      opacity: 1
