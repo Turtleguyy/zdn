@@ -6,10 +6,23 @@
   text-decoration: none
 
 body
+  border-top: 10px solid $cyan
   font-family: avenir, "helvetica neue", helvetica, sans-serif
+  line-height: 1.5em
 
   &, a
     color: $dark
 
+  > .ember-view
+    display: flex
+
 h1
   font-size: 36px
+
+a
+  transition: color 200ms ease
+  &:hover
+    color: $cyan
+
+ul
+  list-style: none
