@@ -1,25 +1,16 @@
 nav
-  padding: 50px
+  padding: 40px 50px 50px
   display: flex
-  align-items: center
   flex-direction: column
 
   h1
-    position: relative
+    margin: 0
     width: 150px
     height: 150px
     border-radius: 50%
     cursor: pointer
 
-    &::before
-      top: 0
-      left: 0
-      z-index: 1
-      position: absolute
-      content: ''
-      box-shadow: 1px 1px 1px rgba(0,0,0,0.5) inset
-
-    &::before, a, img
+    a, img
       width: 100%
       height: 100%
       display: block
@@ -34,6 +25,10 @@ nav
 
   .social
     margin: 25px 0
-    width: 100%
     display: flex
     justify-content: space-between
+
+  ul
+    display: flex
+    align-items: center
+    flex-direction: column
