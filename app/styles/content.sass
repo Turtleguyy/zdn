@@ -1,4 +1,22 @@
 section.content
-  padding: 40px 50px 50px
-  padding-left: 0
   flex: 1 1 auto
+
+.codepens
+  margin: -20px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+  > *
+    margin: 20px
+    flex-basis: 100%
+    @media all and (min-width: 1200px)
+      flex-basis: calc(50% - 40px)
+    @media all and (min-width: 1700px)
+      flex-basis: calc(33% - 40px)
+
+.emphasized
+  margin: 2em 0
+  padding: 10px
+  background: $super-light
+  text-align: center
