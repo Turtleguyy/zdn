@@ -5,7 +5,8 @@ export default Route.extend({
   model() {
     return new Promise(function(resolve, reject) {
       let parser = new Parser()
-      let url = 'https://codepen.io/Turtleguyy/public/feed'
+      let proxy = 'https://cors-anywhere.herokuapp.com/'
+      let url = `${proxy}https://codepen.io/Turtleguyy/public/feed`
       let feed = parser.parseURL(url).then((json) => {
         resolve(json)
       }, (error) => {
