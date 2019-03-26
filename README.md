@@ -1,57 +1,14 @@
-# zdn
+# zacharynicoll.com
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9c703388-ae23-45cb-8e1b-6d26e482f4f1/deploy-status)](https://app.netlify.com/sites/zacharynicoll/deploys)
 
-## Prerequisites
+A simple little site to find out more about me and/or what I've done. For the most part it's technical skills-related, but not completely. Enjoy!
 
-You will need the following things properly installed on your computer.
+## Contributing
 
-* [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+In case someone thinks they know me better than I do, feel free to open up a PR!
 
-## Installation
-
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/turtleguyy/zdn.git`
 * `cd zdn`
 * `npm install`
-
-## Running / Development
-
 * `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Linting
-
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
