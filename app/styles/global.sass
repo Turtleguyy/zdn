@@ -27,8 +27,17 @@ h1
   margin-bottom: 1em
   font-size: 36px
 
+h2
+  margin-top: 1em
+  padding-left: 10px
+  border-left: 7px solid $cyan
+  font-size: 24px
+
 p
   margin: 1em 0
+
+  a
+    color: $cyan
 
 a
   transition: color 200ms ease
@@ -37,3 +46,9 @@ a
 
 ul
   list-style: none
+
+@keyframes text-shimmer
+  from
+    background-position: top left
+  to
+    background-position: top right
