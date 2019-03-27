@@ -8,7 +8,7 @@
 body
   border-top: 10px solid $cyan
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif
-  line-height: 1.5
+  line-height: 1.75
 
   &, a
     color: $dark
@@ -23,21 +23,54 @@ body
     @media all and (max-width: 700px)
       flex-direction: column
 
+h1, h2, h3
+  display: flex
+  align-items: center
+  font-weight: normal
+  line-height: normal
+
+  a
+    margin: 0 5px
+    display: inline-block
+    font-size: 12px
+
 h1
   margin-bottom: 1em
   font-size: 36px
 
+  @media all and (max-width: 700px)
+    text-align: center
+
 h2
-  margin-top: 1em
+  margin: 2em 0 1em
   padding-left: 10px
   border-left: 7px solid $cyan
   font-size: 24px
+
+h3
+  margin: 2em 0 1em
+  font-size: 18px
+  font-weight: bold
+  text-transform: uppercase
 
 p
   margin: 1em 0
 
   a
+    padding: 0 2px 2px
+    display: inline-block
+    border: 1px solid rgba(255,255,255,0)
+    border-radius: 4px
     color: $cyan
+    line-height: normal
+    transition: border-color 200ms ease
+
+    &:hover
+      border-color: $cyan
+
+  span[title]
+    border-bottom: 1px dashed $light
+    cursor: help
 
 a
   transition: color 200ms ease
