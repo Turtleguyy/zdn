@@ -5,22 +5,25 @@ export default Route.extend({
   model() {
     return new Promise(function(resolve, reject) {
       let parser = new Parser()
-      let proxy = 'https://crossorigin.me/'
+      let proxy = 'https://cors-anywhere.herokuapp.com/'
       let url = `${proxy}https://codepen.io/Turtleguyy/public/feed`
       let feed = parser.parseURL(url).then((json) => {
         resolve(json)
       }, (error) => {
-        reject(error)
+        resolve([])
       })
     })
   },
 
   setupController(controller, model) {
     let pens = []
-    for (let item of model.items.slice(0, 9)) {
-      pens.push(/.*pen\/(.*)/.exec(item.link)[1])
-    }
 
-    controller.set('pens', pens)
+    if (typeof model.items != "undefined" && model.items.length) {
+      for (let item of model.items.slice(0, 9)) {
+        pens.push(/.*pen\/(.*)/.exec(item.link)[1])
+      }
+
+      controller.set('pens', pens)
+    }
   },
 })
