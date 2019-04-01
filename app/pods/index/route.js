@@ -19,7 +19,7 @@ export default Route.extend({
     let pens = []
 
     if (typeof model.items != "undefined" && model.items.length) {
-      for (let item of model.items.slice(0, 9)) {
+      for (let item of model.items.slice(0, 6)) {
         pens.push(/.*pen\/(.*)/.exec(item.link)[1])
       }
 
