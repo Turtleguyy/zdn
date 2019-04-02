@@ -18,9 +18,13 @@ export default Route.extend({
   setupController(controller, model) {
     let pens = []
 
+    console.log(model);
     if (typeof model.items != "undefined" && model.items.length) {
       for (let item of model.items.slice(0, 6)) {
-        pens.push(/.*pen\/(.*)/.exec(item.link)[1])
+        pens.push({
+          code: /.*pen\/(.*)/.exec(item.link)[1],
+          title: item.title,
+        })
       }
 
       controller.set('pens', pens)
