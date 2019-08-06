@@ -1,0 +1,24 @@
+<h1>CSS For The Win</h1>
+
+<p>Here are some of my most recent codepens. I’ve been doing the <a href="https://100dayscss.com/" target="_blank" rel="noreferrer">100 Day CSS Challenge</a> when I can (which isn’t all that often), so most of the pens will be from that. Feel free to poke around, but I promise that none of these use <span title="like those other cheaters">JS</span>. If you’re looking for more, there may or may not be a link at the bottom of this page; but you’ll have to scroll past all of the CSS glory before you can find out. CSS FTW!</p>
+
+<div class="codepens">
+  {{#each pens as |pen|}}
+    <p class="codepen" data-height="510" data-theme-id="default" data-default-tab="result" data-preview="true" data-user="Turtleguyy" data-slug-hash="{{pen.code}}">
+      <span>
+        See the Pen
+        <a href="https://codepen.io/Turtleguyy/pen/{{pen.code}}/">
+          {{pen.title}}
+        </a>
+        <br />
+        by Zachary Nicoll
+        (<a href="https://codepen.io/Turtleguyy">@Turtleguyy</a>)
+        on <a href="https://codepen.io">CodePen</a>
+      </span>
+    </p>
+  {{/each}}
+</div>
+
+<p class="emphasized">Want more? Are there more? Who knows. But you can find out here: <a href="https://codepen.io/Turtleguyy/" rel="noopener" target="_blank">codepen.io/Turtleguyy</a></p>
+
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
