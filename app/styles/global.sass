@@ -6,22 +6,31 @@
   text-decoration: none
 
 body
-  border-top: 10px solid $cyan
+  border-top: 10px solid $super-special
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif
   line-height: 1.75
 
+.annoyingly-necessary-app-wrapper
+  padding: 20px 25px
+  display: flex
+  background: $site-background
+  transition: all 200ms ease
+  transition-property: background, color
+
   &, a
-    color: $dark
+    color: $copy
 
-  > .ember-view
-    padding: 20px 25px
-    display: flex
+  &[class*="app-wrapper"]
+    background: $dark-site-background
 
-    > *
-      margin: 20px 25px
+    &, a
+      color: $dark-copy
 
-    @media all and (max-width: 700px)
-      flex-direction: column
+  > *
+    margin: 20px 25px
+
+  @media all and (max-width: 700px)
+    flex-direction: column
 
 h1, h2, h3
   display: flex
@@ -45,7 +54,7 @@ h1
 h2
   margin: 2em 0 1em
   padding-left: 10px
-  border-left: 7px solid $cyan
+  border-left: 7px solid $super-special
   font-size: 24px
 
 h3
@@ -62,21 +71,25 @@ p
     display: inline-block
     border: 1px solid rgba(255,255,255,0)
     border-radius: 4px
-    color: $cyan
+    color: $super-special
     line-height: normal
     transition: border-color 200ms ease
 
     &:hover
-      border-color: $cyan
+      border-color: $super-special
 
   span[title]
-    border-bottom: 1px dashed $light
+    border-bottom: 1px dashed $title-indicator
     cursor: help
+    transition: border 200ms ease
+
+    [class*="app-wrapper"] &
+      border-bottom-color: $dark-title-indicator
 
 a
   transition: color 200ms ease
   &:hover, &.active
-    color: $cyan
+    color: $super-special
 
 ul
   list-style: none

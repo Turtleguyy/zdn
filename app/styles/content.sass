@@ -26,8 +26,13 @@ section.content
 .emphasized
   margin: 2em 0
   padding: 10px
-  background: $super-light
+  background: $call-to-action
+  border: 1px solid rgba(255,255,255,0.25)
   text-align: center
+  transition: background 200ms ease
+
+  [class*="app-wrapper"] &
+    background: $dark-call-to-action
 
 .subtext
   width: 100%
