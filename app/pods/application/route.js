@@ -13,11 +13,9 @@ export default Route.extend({
     let now   = new Date().getTime()
     let times = SunCalc.getTimes(new Date(), this.latitude, this.longitude)
     let dawn  = times.dawn.getTime()
-    let dusk  = times.dusk.getTime()
-    let night = dusk < now && (dawn > now || dawn < dusk)
 
     return {
-      style: night ? 'nighttime' : 'daytime',
+      style: now < dawn ? 'nighttime' : 'daytime',
     }
   },
 
