@@ -59,6 +59,6 @@
   },
   "dependencies": {
     "rss-parser": "^3.7.0",
-    "sunrise-sunset-js": "^2.1.1"
+    "suncalc": "^1.8.0"
   }
 }

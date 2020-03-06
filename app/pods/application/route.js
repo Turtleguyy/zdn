@@ -1,21 +1,27 @@
 import Route from '@ember/routing/route'
-import { getSunrise, getSunset } from 'sunrise-sunset-js'
+import SunCalc from 'suncalc'
+import $ from 'jquery'
 
 export default Route.extend({
   latitude: 39.17791945096009,
   longitude: -94.5441925529041,
 
-  // Yes yes, I'm fully aware this will only accurately calculate sunrise/sunset
+  // Yes yes, I'm fully aware this will only accurately calculate dawn/dusk
   // for my location. I really didn't want to ask people for their permission to
   // use their location anytime they simply visited my website. That'd be weird.
   model() {
-    let sunrise = getSunrise(this.latitude, this.longitude)
-    let sunset  = getSunset(this.latitude, this.longitude)
+    let now   = new Date().getTime()
+    let times = SunCalc.getTimes(new Date(), this.latitude, this.longitude)
+    let dawn  = times.dawn.getTime()
+    let dusk  = times.dusk.getTime()
+    let night = dusk < now && (dawn > now || dawn < dusk)
 
-    let now = new Date().getTime();
-    let nighttime = now > sunset.getTime() && now < sunrise.getTime()
     return {
-      style: nighttime ? 'dark-mode' : ''
+      style: night ? 'nighttime' : 'daytime',
     }
+  },
+
+  afterModel(model) {
+    $('html').addClass(model.style)
   },
 })

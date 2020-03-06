@@ -1,37 +1,35 @@
-<div class="annoyingly-necessary-app-wrapper {{model.style}}">
-  <nav>
-    <h1>
-      {{#link-to "index"}}
-        <img class="avatar" src="images/me.jpg" alt="Avatar">
-      {{/link-to}}
-    </h1>
+<nav>
+  <h1>
+    {{#link-to "index"}}
+      <img class="avatar" src="images/me.jpg" alt="Avatar">
+    {{/link-to}}
+  </h1>
 
-    <div class="social">
-      <a href="https://github.com/turtleguyy" rel="noopener" target="_blank">
-        {{fa-icon "github"}}
-      </a>
-      <a href="https://twitter.com/turtleguyy" rel="noopener" target="_blank">
-        {{fa-icon "twitter"}}
-      </a>
-      <a href="https://www.instagram.com/turtleguyy" rel="noopener" target="_blank">
-        {{fa-icon "instagram"}}
-      </a>
-      <a href="https://500px.com/turtleguyy" rel="noopener" target="_blank">
-        {{fa-icon "500px"}}
-      </a>
-      <a href="http://conswogglerations.com/" rel="noopener" target="_blank">
-        {{fa-icon "tumblr"}}
-      </a>
-    </div>
+  <div class="social">
+    <a href="https://github.com/turtleguyy" rel="noopener" target="_blank">
+      {{fa-icon "github"}}
+    </a>
+    <a href="https://twitter.com/turtleguyy" rel="noopener" target="_blank">
+      {{fa-icon "twitter"}}
+    </a>
+    <a href="https://www.instagram.com/turtleguyy" rel="noopener" target="_blank">
+      {{fa-icon "instagram"}}
+    </a>
+    <a href="https://500px.com/turtleguyy" rel="noopener" target="_blank">
+      {{fa-icon "500px"}}
+    </a>
+    <a href="http://conswogglerations.com/" rel="noopener" target="_blank">
+      {{fa-icon "tumblr"}}
+    </a>
+  </div>
 
-    <ul>
-      <li>{{link-to "about" "index"}}</li>
-      <li>{{link-to "css ftw" "css"}}</li>
-      <li>{{link-to "projects" "projects"}}</li>
-    </ul>
-  </nav>
+  <ul>
+    <li>{{link-to "about" "index"}}</li>
+    <li>{{link-to "css ftw" "css"}}</li>
+    <li>{{link-to "projects" "projects"}}</li>
+  </ul>
+</nav>
 
-  <section class="content">
-    {{outlet}}
-  </section>
-</div>
+<section class="content">
+  {{outlet}}
+</section>
