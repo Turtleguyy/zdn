@@ -7,17 +7,17 @@ import {
   FaTumblr,
 } from "react-icons/fa";
 
-export function Layout({ children }) {
+export default function Layout({ children }) {
   return (
     <>
-      <nav className="flex flex-col items-center my-5 mr-5 md:my-6 md:mr-6">
-        <h1 className="m-0 w-[150px] h-[150px] rounded-full cursor-pointer [&_img]:transition-[filter_200ms_ease] [&:hover_img]:grayscale [&_img]:block [&_img]:w-full [&_img]:h-full [&_img]:rounded-full">
-          <NavLink to="/" className="block w-full h-full">
+      <nav className="my-5 mr-5 flex flex-col items-center md:my-6 md:mr-6">
+        <h1 className="m-0 h-[150px] w-[150px] cursor-pointer rounded-full [&_img]:block [&_img]:h-full [&_img]:w-full [&_img]:rounded-full [&_img]:transition-[filter_200ms_ease] [&:hover_img]:grayscale">
+          <NavLink to="/" className="block h-full w-full">
             <img className="avatar" src="/images/me.jpg" alt="Avatar" />
           </NavLink>
         </h1>
 
-        <div className="social flex justify-between my-6 [&_a]:mx-1.5">
+        <div className="social my-6 flex justify-between [&_a]:mx-1.5">
           <a
             href="https://github.com/turtleguyy"
             rel="noopener"
@@ -60,7 +60,7 @@ export function Layout({ children }) {
           </a>
         </div>
 
-        <ul className="flex flex-col items-center list-none p-0 m-0">
+        <ul className="m-0 flex list-none flex-col items-center p-0">
           <li>
             <NavLink
               to="/"
@@ -88,7 +88,7 @@ export function Layout({ children }) {
         </ul>
       </nav>
 
-      <section className="content flex-1 min-w-0 my-5 ml-5 md:my-6 md:ml-6">
+      <section className="content my-5 ml-5 min-w-0 flex-1 md:my-6 md:ml-6">
         {children}
       </section>
     </>

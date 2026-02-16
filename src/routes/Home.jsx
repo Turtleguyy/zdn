@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function Home() {
+export default function Home() {
   const year = new Date().getFullYear();
 
   return (

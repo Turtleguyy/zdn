@@ -1,7 +1,7 @@
 import OrderingImage from "../assets/ordering.png";
 import PermissionsImage from "../assets/permissions.png";
 
-export function CaseStudies() {
+export default function CaseStudies() {
   return (
     <>
       <h1>Case Studies</h1>
@@ -9,7 +9,7 @@ export function CaseStudies() {
         <h2>User Permissions & Feature Access System</h2>
         <img
           src={PermissionsImage}
-          className="block h-auto w-1/2 rounded shadow"
+          className="block h-auto w-1/2 rounded shadow max-2xl:w-full"
         />
         <h3>Context</h3>
         <p>
@@ -48,7 +48,7 @@ export function CaseStudies() {
         </h2>
         <img
           src={OrderingImage}
-          className="block h-auto w-1/2 rounded shadow"
+          className="block h-auto w-1/2 rounded shadow max-2xl:w-full"
         />
         <h3>Context</h3>
         <p>

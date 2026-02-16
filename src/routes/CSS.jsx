@@ -25,7 +25,7 @@ function parseFeedXml(xmlText) {
     .filter((p) => p.code);
 }
 
-export function CSS() {
+export default function Css() {
   const [pens, setPens] = useState(FALLBACK_PENS);
   const [scriptLoaded, setScriptLoaded] = useState(false);
 

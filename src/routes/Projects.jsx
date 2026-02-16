@@ -13,7 +13,7 @@ function ExtLink({ href, children }) {
   );
 }
 
-export function Projects() {
+export default function Projects() {
   return (
     <>
       <h1>&ldquo;Professional&rdquo; Stuff</h1>
