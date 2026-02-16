@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { ThemeEffect } from "./ThemeEffect";
 import Layout from "./layout/Layout";
-import Home from "./routes/Home";
-import Css from "./routes/Css";
-import Projects from "./routes/Projects";
 import CaseStudies from "./routes/CaseStudies";
+import Css from "./routes/Css";
+import Home from "./routes/Home";
+import Projects from "./routes/Projects";
 
 export default function App() {
   return (
