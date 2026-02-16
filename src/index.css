@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-copy: #112233;
+  --color-site-bg: #ffffff;
+  --color-call-to-action: #eef5ff;
+  --color-title-indicator: #cccddd;
+  --color-super-special: #0bc6d4;
+  --font-sans: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  --font-mono: "Source Code Pro", monospace;
+}
+
+.dark {
+  --color-copy: #ddeeee;
+  --color-site-bg: #333333;
+  --color-call-to-action: #222222;
+  --color-title-indicator: #667788;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 border-0 box-border no-underline;
+  }
+
+  html {
+    @apply bg-site-bg transition-colors duration-200;
+  }
+
+  body {
+    @apply border-t-[10px] border-t-super-special font-sans text-copy leading-[1.75];
+  }
+
+  h1, h2, h3 {
+    @apply flex items-center flex-wrap font-normal leading-normal;
+  }
+
+  h1 {
+    @apply mb-4 text-4xl;
+  }
+  @media (max-width: 700px) {
+    h1 {
+      @apply text-center;
+    }
+  }
+
+  h2 {
+    @apply my-8 mt-8 mb-4 pl-2.5 border-l-[7px] border-super-special text-2xl;
+  }
+
+  h3 {
+    @apply my-8 mt-8 mb-4 text-lg font-bold uppercase;
+  }
+
+  p {
+    @apply my-4;
+  }
+
+  p a {
+    @apply px-0.5 py-0.5 pb-0.5 inline-block border border-transparent rounded text-super-special leading-normal transition-colors duration-200;
+  }
+  p a:hover {
+    @apply border-super-special;
+  }
+
+  a {
+    @apply text-copy transition-colors duration-200;
+  }
+  a:hover, a.active {
+    @apply text-super-special;
+  }
+
+  ul {
+    @apply list-none;
+  }
+
+  code {
+    @apply font-mono;
+  }
+
+  span[title] {
+    @apply cursor-help border-title-indicator border-dashed border-b-1 transition-colors;
+  }
+
+  .subtext {
+    @apply block w-full font-mono text-xs normal-case;
+  }
+}

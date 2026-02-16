@@ -2,63 +2,32 @@
   "name": "zdn",
   "version": "0.0.0",
   "private": true,
-  "description": "Small description for zdn goes here",
-  "repository": "",
-  "license": "MIT",
-  "author": "",
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
+  "type": "module",
   "scripts": {
-    "build": "ember build",
-    "lint:hbs": "ember-template-lint .",
-    "lint:js": "eslint .",
-    "start": "ember serve",
-    "test": "ember test"
-  },
-  "devDependencies": {
-    "@ember/jquery": "^0.5.2",
-    "@ember/optional-features": "^0.6.3",
-    "@fortawesome/ember-fontawesome": "^0.1.13",
-    "@fortawesome/free-brands-svg-icons": "^5.8.0",
-    "@fortawesome/free-solid-svg-icons": "^5.8.1",
-    "broccoli-asset-rev": "^2.7.0",
-    "ember-ajax": "^4.0.1",
-    "ember-auto-import": "^1.5.3",
-    "ember-browserify": "^1.2.2",
-    "ember-cli": "~3.8.1",
-    "ember-cli-app-version": "^3.2.0",
-    "ember-cli-babel": "^7.1.2",
-    "ember-cli-dependency-checker": "^3.1.0",
-    "ember-cli-eslint": "^4.2.3",
-    "ember-cli-htmlbars": "^3.0.0",
-    "ember-cli-htmlbars-inline-precompile": "^1.0.3",
-    "ember-cli-inject-live-reload": "^1.8.2",
-    "ember-cli-moment-shim": "^3.7.1",
-    "ember-cli-sass": "^10.0.0",
-    "ember-cli-sri": "^2.1.1",
-    "ember-cli-template-lint": "^1.0.0-beta.1",
-    "ember-cli-uglify": "^2.1.0",
-    "ember-data": "~3.8.0",
-    "ember-export-application-global": "^2.0.0",
-    "ember-load-initializers": "^1.1.0",
-    "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-moment": "^7.8.1",
-    "ember-qunit": "^3.4.1",
-    "ember-resolver": "^5.0.1",
-    "ember-source": "~3.8.0",
-    "ember-welcome-page": "^3.2.0",
-    "eslint-plugin-ember": "^5.2.0",
-    "loader.js": "^4.7.0",
-    "qunit-dom": "^0.8.0",
-    "sass": "^1.17.3"
-  },
-  "engines": {
-    "node": "6.* || 8.* || >= 10.*"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "dependencies": {
-    "rss-parser": "^3.7.0",
-    "suncalc": "^1.8.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "react-icons": "^5.4.0",
+    "suncalc": "^1.9.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.15.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.12.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "vite": "^6.0.3"
   }
 }
