@@ -6,7 +6,7 @@ function ExtLink({ href, children }) {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-block ml-1 text-xs"
+      className="ml-1 inline-block text-xs"
     >
       <FaExternalLinkAlt />
     </a>
