@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { ThemeEffect } from "./ThemeEffect";
 import Layout from "./layout/Layout";
 import CaseStudies from "./routes/CaseStudies";
-import Css from "./routes/Css";
+import Css from "./routes/CSS";
 import Home from "./routes/Home";
 import Projects from "./routes/Projects";
 
@@ -14,7 +14,7 @@ export default function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/css" element={<Css />} />
+            <Route path="/css" element={<CSS />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/case-studies" element={<CaseStudies />} />
           </Routes>
