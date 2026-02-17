@@ -1,15 +1,91 @@
+import { useEffect, useState, useMemo } from "react";
+import { FaTimes } from "react-icons/fa";
 import OrderingImage from "../assets/ordering.png";
+import PermissionsCode from "../assets/permissions-code.png";
 import PermissionsImage from "../assets/permissions.png";
 
+const thumbnailClass =
+  "block h-auto max-w-xs cursor-pointer rounded border border-black/10 shadow hover:border-super-special max-md:w-full";
+
+function ImageLightbox({ src, onClose }) {
+  const [maxSize, setMaxSize] = useState(null);
+
+  useEffect(() => {
+    setMaxSize(null);
+  }, [src]);
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [onClose]);
+
+  const padding = 32;
+  const style = useMemo(() => {
+    if (!maxSize) return undefined;
+    return {
+      maxWidth: Math.min(maxSize.width, window.innerWidth - padding),
+      maxHeight: Math.min(maxSize.height, window.innerHeight - padding),
+    };
+  }, [maxSize, padding]);
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="View image full screen"
+    >
+      <div
+        className="relative max-h-full max-w-full"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute -top-2 -right-2 z-10 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-white text-black shadow hover:bg-gray-100"
+          aria-label="Close"
+        >
+          <FaTimes className="text-lg" />
+        </button>
+        <img
+          src={src}
+          alt=""
+          className="w-auto rounded-lg object-contain"
+          style={style}
+          onLoad={(e) => {
+            const { naturalWidth, naturalHeight } = e.target;
+            setMaxSize({ width: naturalWidth, height: naturalHeight });
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function CaseStudies() {
+  const [openImage, setOpenImage] = useState(null);
+
   return (
     <>
       <h1>Case Studies</h1>
+      <p>
+        These are a few representative projects from my most recent role. Much
+        of my work lived in private repositories and production systems, so
+        I&rsquo;ve included what I was able to document before the company shut
+        down.
+      </p>
       <div>
         <h2>User Permissions & Feature Access System</h2>
         <img
           src={PermissionsImage}
-          className="block h-auto w-1/2 rounded shadow max-2xl:w-full"
+          alt="User permissions interface"
+          className={thumbnailClass}
+          onClick={() => setOpenImage(PermissionsImage)}
         />
         <h3>Context</h3>
         <p>
@@ -40,6 +116,20 @@ export default function CaseStudies() {
           cleanly as new feature modules were introduced, and we reduced support
           questions tied to permission confusion.
         </p>
+        <h3>Implementation approach</h3>
+        <img
+          src={PermissionsCode}
+          alt="Permissions implementation code"
+          className={thumbnailClass}
+          onClick={() => setOpenImage(PermissionsCode)}
+        />
+        <p>
+          The permission layer needed to support role-based access, explicit
+          overrides for beta features, and dynamic feature state without
+          scattering conditionals throughout the UI. I centralized that logic in
+          a custom hook that exposes a simple boolean map so components remain
+          declarative.
+        </p>
       </div>
 
       <div className="mt-12">
@@ -48,7 +138,9 @@ export default function CaseStudies() {
         </h2>
         <img
           src={OrderingImage}
-          className="block h-auto w-1/2 rounded shadow max-2xl:w-full"
+          alt="Feature management interface"
+          className={thumbnailClass}
+          onClick={() => setOpenImage(OrderingImage)}
         />
         <h3>Context</h3>
         <p>
@@ -85,6 +177,10 @@ export default function CaseStudies() {
           apps.
         </p>
       </div>
+
+      {openImage && (
+        <ImageLightbox src={openImage} onClose={() => setOpenImage(null)} />
+      )}
     </>
   );
 }
