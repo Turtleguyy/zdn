@@ -12,15 +12,17 @@ export default function Home() {
         <span title="Turtleguyy, but you can call me Turtle">
           Zachary Nicoll, but you can call me Zach
         </span>
-        . I'm currently over at{" "}
+        . Most recently, I was over at{" "}
         <a href="https://www.agencykpi.com/" target="_blank" rel="noreferrer">
           AgencyKPI
         </a>{" "}
-        working on all sorts of cool things. I love what I do, but I also love
-        life and everything that goes along with it. Yes, I'm a software
-        developer, but more importantly, I'm a father, a husband, a diver, and a
-        gamer. Perhaps even more paramount to the core of who I am, I'm also a
-        strong believer in the oxford comma. That, and the fact that it's{" "}
+        working on all sorts of cool things. Right now, I&rsquo;m focused on
+        finding the next great team to build with. I love what I do, but I also
+        love life and everything that goes along with it. Yes, I&rsquo;m a
+        software developer, but more importantly, I&rsquo;m a father, a husband,
+        a diver, and a gamer. Perhaps even more paramount to the core of who I
+        am, I&rsquo;m also a strong believer in the oxford comma. That, and the
+        fact that it&rsquo;s{" "}
         <span title="yes, even though my own name contradicts this">
           sync and not synch
         </span>{" "}
@@ -30,24 +32,20 @@ export default function Home() {
       <h2>My Sweet Skills</h2>
 
       <p>
-        Most days I'm a front-end web developer. Like, real front end. Not that
-        fake front-end business that people have started calling "front end"
-        just because you can do it with JavaScript (looking at you, Node). More
-        specifically, I spend most of my time working in React. Before that, it
-        was Ember.js. Before that, of course, was the era of raw JS and jQuery.
-        But also, CSS is my jam. Custom, hand-written,
-        nobody-needs-your-framework, CSS.
+        Most days I&apos;m a front-end/product engineer focused on React
+        applications and complex UI workflows. I still care deeply about the
+        fundamentals: semantic HTML, thoughtful CSS, and JavaScript that is
+        readable six months later. CSS is still my jam, and yes, I still prefer
+        writing it by hand when it makes sense.
       </p>
 
       <p>
-        My roots, however, are in Haml, Sass, CoffeeScript, and Ruby on Rails.
-        We call those the "Glory Days". I fell in love with Rails early on and
-        still use it whenever I get the chance. Compared to the chaos of almost
-        everything else, Rails just feels right. Speaking of strange,
-        language-induced feelings, Python also gives me the same warm and fuzzy
-        feelings as Ruby, though I haven't had the chance to try it yet. And
-        yeah, like everyone else who's honest with themselves, I too miss
-        CoffeeScript.
+        My roots are in Haml, Sass, CoffeeScript, and Ruby on Rails. These
+        days, most of my production work is React and modern JavaScript, but
+        those earlier stacks taught me habits I still rely on: clear structure,
+        sensible abstractions, and respect for maintainability. Rails still has
+        a special place in my heart, and yes, like everyone else who&apos;s
+        honest with themselves, I still miss CoffeeScript.
       </p>
 
       <p>
@@ -92,13 +90,13 @@ export default function Home() {
         >
           my wife
         </a>{" "}
-        decided she wanted to do what I did. So, I got a new job in Orlando as a
-        web developer, and back to Florida (and Full Sail) we went. I worked in
-        an office for about five years, then switched to remote full-time in
-        2017. I've had the opportunity to try my hand at a few different
+        decided she wanted to do what I did. So, I got a new job in Orlando as
+        a web developer, and back to Florida (and Full Sail) we went. I worked
+        in an office for about five years, then switched to remote full-time in
+        2017. I&apos;ve had the opportunity to try my hand at a few different
         technologies over the course of many different projects throughout my
-        career. Be sure to check out the <Link to="/projects">projects</Link>{" "}
-        page for more details.
+        career. Be sure to check out the{" "}
+        <Link to="/experience">experience</Link> page for more details.
       </p>
 
       <h2>Postscript</h2>

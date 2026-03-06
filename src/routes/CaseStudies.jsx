@@ -1,6 +1,5 @@
 import { useEffect, useState, useMemo } from "react";
 import { FaTimes } from "react-icons/fa";
-import OrderingImage from "../assets/ordering.png";
 import PermissionsCode from "../assets/permissions-code.png";
 import PermissionsImage from "../assets/permissions.png";
 
@@ -74,13 +73,19 @@ export default function CaseStudies() {
     <>
       <h1>Case Studies</h1>
       <p>
-        These are a few representative projects from my most recent role. Much
-        of my work lived in private repositories and production systems, so
-        I&rsquo;ve included what I was able to document before the company shut
-        down.
+        These are representative projects from my most recent role. Most of my
+        work lived in private repositories and production systems, so the
+        examples below focus on implementation approach, product constraints,
+        and outcomes.
       </p>
-      <div>
-        <h2>User Permissions & Feature Access System</h2>
+      <nav className="case-study-jump mt-6" aria-label="Case study navigation">
+        <a href="#permissions-platform">Permissions Platform</a>
+        <a href="#sidebar-registry">Sidebar & Feature Registry</a>
+        <a href="#component-library-platform">Component Library Platform</a>
+      </nav>
+
+      <article id="permissions-platform" className="case-study mt-8 scroll-mt-6">
+        <h2>Enterprise Permissions & Access Control Platform</h2>
         <img
           src={PermissionsImage}
           alt="User permissions interface"
@@ -89,18 +94,54 @@ export default function CaseStudies() {
         />
         <h3>Context</h3>
         <p>
-          Enterprise customers needed granular control over user access across
-          multiple product modules.
+          The project started from a high-level request: enterprise customers
+          needed a way to manage users and access across multiple product
+          modules.
         </p>
-        <h3>The Problem</h3>
         <p>
-          Permissions were difficult to manage and lacked clarity. Admin users
-          couldn&rsquo;t quickly see what access a user actually had, and edge
-          cases created confusion.
+          Existing permissions were inconsistent and difficult to reason about.
+          Admins couldn&rsquo;t quickly determine effective access, inheritance
+          behavior was unclear, and support frequently handled permission
+          confusion.
         </p>
-        <h3>What I Did</h3>
-        <p>I designed and implemented a modular permissions interface that:</p>
+        <h3>Outcome</h3>
+        <p>
+          Admin workflows became faster and more predictable, support tickets
+          tied to permission confusion were reduced, and the model scaled
+          cleanly as new modules were added.
+        </p>
+        <details className="mt-5">
+          <summary>View role, constraints, decisions, and implementation</summary>
+        <h3>My Role</h3>
+        <p>
+          I led the project end-to-end: discovery, UX design, technical
+          planning, ticket writing across frontend/backend/database, frontend
+          implementation, rollout coordination, and release.
+        </p>
+        <h3>Constraints</h3>
         <ul className="list-inside list-disc">
+          <li>
+            Permissions had to support multiple apps, roles, and account-level
+            variations
+          </li>
+          <li>
+            Logic needed to evolve without forcing widespread UI rewrites
+          </li>
+          <li>
+            Admin workflows had to minimize accidental misconfiguration
+          </li>
+        </ul>
+        <h3>Decisions & Tradeoffs</h3>
+        <p>
+          I standardized the model around two layers: group-level permissions
+          plus per-user overrides. That required more upfront architecture
+          work, but gave us predictable inheritance and better long-term
+          maintainability than scattered per-screen logic.
+        </p>
+        <h3>Implementation</h3>
+        <p>I designed and implemented a modular permissions system that:</p>
+        <ul className="list-inside list-disc">
+          <li>Supports group inheritance with explicit user-level overrides</li>
           <li>Surfaces access state clearly (Granted / Denied / Unassigned)</li>
           <li>Allows bulk or individual control</li>
           <li>Groups permissions by product area</li>
@@ -110,13 +151,6 @@ export default function CaseStudies() {
           I focused heavily on state visibility, scanning efficiency, and
           minimizing accidental misconfiguration.
         </p>
-        <h3>Outcome</h3>
-        <p>
-          Admin workflows became faster and more predictable. The UI scaled
-          cleanly as new feature modules were introduced, and we reduced support
-          questions tied to permission confusion.
-        </p>
-        <h3>Implementation approach</h3>
         <img
           src={PermissionsCode}
           alt="Permissions implementation code"
@@ -130,53 +164,156 @@ export default function CaseStudies() {
           a custom hook that exposes a simple boolean map so components remain
           declarative.
         </p>
-      </div>
+        <p>
+          I also partnered with backend and data engineers to define API
+          contracts and storage rules for groups, assignments, and overrides so
+          UI behavior matched system behavior consistently.
+        </p>
+        <h3>What I Learned</h3>
+        <p>
+          In hindsight, documenting inheritance edge cases and system diagrams
+          earlier would have reduced iteration time during implementation.
+        </p>
+        </details>
+      </article>
 
-      <div className="mt-12">
-        <h2>
-          Feature Management & Navigation Configuration (Internal Admin Tool)
-        </h2>
-        <img
-          src={OrderingImage}
-          alt="Feature management interface"
-          className={thumbnailClass}
-          onClick={() => setOpenImage(OrderingImage)}
-        />
+      <article id="sidebar-registry" className="case-study mt-8 scroll-mt-6">
+        <h2>Configuration-Driven Sidebar & Feature Registry</h2>
         <h3>Context</h3>
         <p>
-          Multi-tenant B2B product with multiple apps under one platform.
-          Internal teams needed a way to control which features appeared in each
-          app, and in what order, per customer.
+          As the product grew, sidebar navigation and feature visibility were
+          implemented inconsistently across the codebase. This created both
+          product reliability issues and developer maintenance overhead.
         </p>
-        <h3>The Problem</h3>
         <p>
-          Sidebar navigation was hard-coded across apps. Every request to add,
-          hide, or reorder features required engineering time. It didn’t scale,
-          and inconsistencies were creeping in between products.
-        </p>
-        <h3>What I Did</h3>
-        <p>
-          I designed and built a feature management system that allowed internal
-          users to:
-        </p>
-        <ul className="list-inside list-disc">
-          <li>Assign features per customer</li>
-          <li>Group features logically</li>
-          <li>Reorder navigation via drag-and-drop with live app previews</li>
-        </ul>
-        <p>
-          The UI mirrors the actual product navigation so changes feel intuitive
-          and predictable. I focused on clarity, hierarchy, and reducing
-          cognitive load in a configuration-heavy workflow.
+          Navigation configuration was distributed across multiple components and
+          files. Permission checks, ordering, and visibility rules were
+          duplicated and inconsistent, so features could appear in navigation
+          even when users could not access them.
         </p>
         <h3>Outcome</h3>
         <p>
-          Navigation became configurable without code changes. Internal support
-          stopped filing “can you move this tab?” tickets. The system replaced
-          multiple one-off implementations and created a scalable pattern across
-          apps.
+          Navigation behavior became consistent and safer across the product.
+          Duplicate permission logic was reduced, inaccessible features stopped
+          surfacing in the sidebar, and adding new features became faster and
+          more predictable for the team.
         </p>
-      </div>
+        <details className="mt-5">
+          <summary>View role, constraints, decisions, and implementation</summary>
+        <h3>My Role</h3>
+        <p>
+          I led the architecture and implementation of the new navigation model,
+          defining how features were registered, evaluated, and rendered across
+          the application.
+        </p>
+        <h3>Constraints</h3>
+        <ul className="list-inside list-disc">
+          <li>
+            Access behavior depended on roles, feature flags, account config,
+            and entitlements
+          </li>
+          <li>
+            Existing product surfaces had different assumptions about sidebar
+            structure
+          </li>
+          <li>
+            New features still needed to ship while the navigation model was
+            being improved
+          </li>
+        </ul>
+        <h3>Decisions & Tradeoffs</h3>
+        <p>
+          I shifted the sidebar to a configuration-driven model with a central
+          feature registry and runtime access evaluation. This introduced
+          upfront architectural work, but replaced fragile component-level logic
+          with a predictable, scalable platform pattern.
+        </p>
+        <h3>Implementation</h3>
+        <p>
+          Features were represented as structured configuration objects with
+          route metadata, grouping, visibility rules, and permission
+          requirements. The sidebar rendered from this data rather than
+          hard-coded UI branches.
+        </p>
+        <p>I designed and implemented:</p>
+        <ul className="list-inside list-disc">
+          <li>A central feature registry for navigation definitions</li>
+          <li>
+            A permission evaluation layer for roles, flags, and account-level
+            capabilities
+          </li>
+          <li>A dynamic sidebar renderer driven by user context</li>
+          <li>
+            A consistent pattern for registering new features without touching
+            multiple UI surfaces
+          </li>
+        </ul>
+        <p>
+          This decoupled business rules from presentational components and made
+          navigation behavior easier to reason about, test, and evolve.
+        </p>
+        </details>
+      </article>
+
+      <article
+        id="component-library-platform"
+        className="case-study mt-8 scroll-mt-6"
+      >
+        <h2>Shared React Component Library Platform</h2>
+        <h3>Context</h3>
+        <p>
+          Multiple production React applications were evolving in parallel, but
+          each one was implementing UI patterns differently. Shared components
+          existed in fragments, but there was no clear contract for reuse.
+        </p>
+        <p>
+          Teams were shipping features with duplicated UI logic, inconsistent
+          behavior, and repeated styling decisions. This increased QA overhead,
+          slowed onboarding, and made cross-app maintenance expensive.
+        </p>
+        <h3>Outcome</h3>
+        <p>
+          The platform became the baseline for all active applications. UI
+          consistency improved, duplicate code decreased, and feature teams
+          moved faster because they could assemble from proven building blocks
+          rather than recreate patterns per project.
+        </p>
+        <details className="mt-5">
+          <summary>View role, constraints, decisions, and implementation</summary>
+        <h3>My Role</h3>
+        <p>
+          I drove the component library strategy and implementation, partnering
+          with feature teams to establish adoption patterns and maintain API
+          consistency across applications.
+        </p>
+        <h3>Constraints</h3>
+        <ul className="list-inside list-disc">
+          <li>Could not pause feature delivery for a full rewrite</li>
+          <li>Had to support different product surfaces and release cadences</li>
+          <li>Needed migration paths that worked incrementally</li>
+        </ul>
+        <h3>Decisions & Tradeoffs</h3>
+        <p>
+          I prioritized foundational components with the highest reuse value
+          first (forms, tables, layout primitives) and deferred lower-impact
+          abstractions. We favored clear API contracts over premature
+          flexibility to keep adoption fast and predictable.
+        </p>
+        <h3>Implementation</h3>
+        <p>
+          I designed and implemented a shared component library with Storybook
+          documentation, standardized interaction states, and clear component
+          APIs. I also established implementation patterns for composition,
+          variant handling, and accessibility defaults.
+        </p>
+        <p>
+          Instead of a one-time migration, I integrated adoption into normal
+          feature work and refactors. New work used shared components by
+          default, and existing screens were upgraded as they were touched. This
+          kept delivery moving while steadily reducing divergence.
+        </p>
+        </details>
+      </article>
 
       {openImage && (
         <ImageLightbox src={openImage} onClose={() => setOpenImage(null)} />

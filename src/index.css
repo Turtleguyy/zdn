@@ -3,20 +3,24 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-copy: #112233;
-  --color-site-bg: #ffffff;
-  --color-call-to-action: #eef5ff;
-  --color-title-indicator: #cccddd;
+  --color-copy: #12202b;
+  --color-site-bg: #f7fafc;
+  --color-call-to-action: #e9f3f8;
+  --color-title-indicator: #c9d8e2;
   --color-super-special: #0bc6d4;
+  --color-panel-bg: #ffffff;
+  --color-panel-border: #d6e1e8;
   --font-sans: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   --font-mono: "Source Code Pro", monospace;
 }
 
 .dark {
-  --color-copy: #ddeeee;
-  --color-site-bg: #333333;
-  --color-call-to-action: #222222;
-  --color-title-indicator: #667788;
+  --color-copy: #d9e7ee;
+  --color-site-bg: #1c2730;
+  --color-call-to-action: #223442;
+  --color-title-indicator: #5f7988;
+  --color-panel-bg: #22313c;
+  --color-panel-border: #38505e;
 }
 
 @layer base {
@@ -29,7 +33,7 @@
   }
 
   body {
-    @apply border-t-[10px] border-t-super-special font-sans text-copy leading-[1.75];
+    @apply border-t-[10px] border-t-super-special bg-site-bg font-sans text-copy leading-[1.75];
   }
 
   h1, h2, h3 {
@@ -37,7 +41,7 @@
   }
 
   h1 {
-    @apply mb-4 text-4xl;
+    @apply mb-4 text-4xl font-semibold tracking-tight;
   }
   @media (max-width: 700px) {
     h1 {
@@ -55,6 +59,10 @@
 
   p {
     @apply my-4;
+  }
+
+  strong {
+    @apply font-semibold;
   }
 
   p a {
@@ -85,5 +93,67 @@
 
   .subtext {
     @apply block w-full font-mono text-xs normal-case;
+  }
+
+  .lead {
+    @apply text-xl leading-relaxed;
+  }
+
+  .content {
+    @apply rounded-xl border border-panel-border bg-panel-bg p-8 shadow-sm max-[700px]:p-5;
+  }
+
+  nav ul li {
+    @apply my-1;
+  }
+
+  nav ul li a {
+    @apply font-mono text-xs uppercase tracking-[0.12em];
+  }
+
+  @media (max-width: 700px) {
+    nav ul li {
+      @apply my-0;
+    }
+  }
+
+  .social a {
+    @apply rounded-md p-1.5 text-copy/80 hover:bg-copy/5 hover:text-super-special;
+  }
+
+  .role + .role {
+    @apply mt-2;
+  }
+
+  .case-study-jump {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .case-study-jump a {
+    @apply rounded-full border border-panel-border bg-panel-bg px-3 py-1.5 font-mono text-xs uppercase tracking-[0.08em];
+  }
+
+  .case-study {
+    @apply rounded-xl border border-panel-border bg-panel-bg p-5 shadow-sm;
+  }
+
+  .case-study h2 {
+    @apply mt-0;
+  }
+
+  .case-study p, .case-study ul {
+    @apply max-w-3xl;
+  }
+
+  .case-study details {
+    @apply rounded-lg border border-panel-border bg-site-bg/55 p-4;
+  }
+
+  .case-study summary {
+    @apply cursor-pointer font-mono text-xs uppercase tracking-[0.08em];
+  }
+
+  .case-study details[open] summary {
+    @apply mb-3;
   }
 }
